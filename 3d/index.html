@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Vice City News · Leonida Wire</title>
+<meta name="description" content="Unofficial GTA 6 community newsroom. 3D Leonida wire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #05010f;
+  --cyan: #00f0ff;
+  --pink: #ff2bd6;
+  --yellow: #ffe566;
+  --purple: #7b2cff;
+  --text: #f4f0ff;
+  --muted: #9b92b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; }
+#canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+.vignette {
+  pointer-events: none; position: fixed; inset: 0; z-index: 1;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, transparent 40%, rgba(5,1,15,.75) 100%),
+    linear-gradient(180deg, rgba(5,1,15,.35) 0%, transparent 25%, transparent 70%, rgba(5,1,15,.9) 100%);
+}
+.scan {
+  pointer-events: none; position: fixed; inset: 0; z-index: 2; opacity: .06;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,240,255,.15) 3px);
+  mix-blend-mode: screen;
+}
+.ui { position: fixed; inset: 0; z-index: 10; pointer-events: none; display: flex; flex-direction: column; }
+.ui a, .ui button { pointer-events: auto; }
+.top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 28px; border-bottom: 1px solid rgba(0,240,255,.12);
+  background: linear-gradient(180deg, rgba(5,1,15,.75), transparent);
+  backdrop-filter: blur(12px);
+}
+.logo {
+  font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: .06em;
+  text-decoration: none; color: var(--text);
+}
+.logo span { color: var(--cyan); text-shadow: 0 0 18px rgba(0,240,255,.6); }
+.nav { display: flex; gap: 18px; align-items: center; }
+.nav a {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+  transition: color .2s, text-shadow .2s;
+}
+.nav a:hover { color: var(--cyan); text-shadow: 0 0 12px rgba(0,240,255,.5); }
+.hero {
+  flex: 1; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 28px 120px; max-width: 720px;
+}
+.kicker {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--pink);
+  text-shadow: 0 0 16px rgba(255,43,214,.55);
+  margin-bottom: 12px;
+}
+h1 {
+  font-family: "Bebas Neue", sans-serif; font-size: clamp(42px, 8vw, 84px);
+  line-height: .92; letter-spacing: .02em; margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, var(--cyan) 45%, var(--pink) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 30px rgba(0,240,255,.25));
+}
+.lede {
+  font-size: 16px; line-height: 1.55; color: var(--muted); max-width: 480px; margin-bottom: 28px;
+}
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 22px; border-radius: 999px; border: 1px solid rgba(0,240,255,.45);
+  background: linear-gradient(135deg, rgba(0,240,255,.18), rgba(255,43,214,.12));
+  color: var(--text); font-weight: 600; font-size: 14px; text-decoration: none;
+  box-shadow: 0 0 24px rgba(0,240,255,.2), inset 0 0 20px rgba(0,240,255,.08);
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+  box-shadow: 0 0 36px rgba(0,240,255,.4), inset 0 0 24px rgba(0,240,255,.12);
+}
+.ghost {
+  display: inline-flex; padding: 14px 22px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14); color: var(--muted);
+  font-size: 14px; font-weight: 500; text-decoration: none;
+  background: rgba(255,255,255,.03); transition: color .2s, border-color .2s;
+}
+.ghost:hover { color: var(--text); border-color: rgba(255,43,214,.4); }
+.hud {
+  position: absolute; right: 28px; top: 50%; transform: translateY(-50%);
+  width: min(260px, 32vw); pointer-events: none;
+}
+.hud-card {
+  border: 1px solid rgba(0,240,255,.2);
+  background: rgba(8,2,20,.55);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 0 40px rgba(123,44,255,.15);
+  margin-bottom: 12px;
+}
+.hud-label {
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--cyan); margin-bottom: 6px;
+}
+.hud-value { font-family: "Bebas Neue", sans-serif; font-size: 28px; letter-spacing: .04em; }
+.hud-meta { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.bar {
+  height: 3px; border-radius: 2px; margin-top: 10px;
+  background: rgba(255,255,255,.08); overflow: hidden;
+}
+.bar > i {
+  display: block; height: 100%; width: 62%;
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
+  box-shadow: 0 0 12px var(--cyan);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: .7; width: 58%; }
+  50% { opacity: 1; width: 72%; }
+}
+.bottom {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 16px 28px 22px;
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 16px;
+  background: linear-gradient(0deg, rgba(5,1,15,.85), transparent);
+  border-top: 1px solid rgba(0,240,255,.08);
+}
+.ticker {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .08em;
+  color: var(--muted); white-space: nowrap; overflow: hidden; flex: 1;
+}
+.ticker span { color: var(--yellow); }
+.hint {
+  font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: .14em;
+  text-transform: uppercase; color: rgba(155,146,184,.7); white-space: nowrap;
+}
+.loader {
+  position: fixed; inset: 0; z-index: 50; display: grid; place-items: center;
+  background: var(--bg); transition: opacity .6s ease, visibility .6s;
+}
+.loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-inner { text-align: center; }
+.loader-ring {
+  width: 48px; height: 48px; margin: 0 auto 16px;
+  border: 2px solid rgba(0,240,255,.15);
+  border-top-color: var(--cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  box-shadow: 0 0 24px rgba(0,240,255,.3);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loader p {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--cyan);
+}
+@media (max-width: 900px) {
+  .hud { display: none; }
+  .hero { padding-bottom: 100px; }
+  .nav a:not(.show-m) { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="loader" id="loader"><div class="loader-inner"><div class="loader-ring"></div><p>Booting Leonida wire</p></div></div>
+<canvas id="canvas"></canvas>
+<div class="vignette"></div>
+<div class="scan"></div>
+
+<div class="ui">
+  <header class="top">
+    <a class="logo" href="../">VICE CITY <span>NEWS</span></a>
+    <nav class="nav">
+      <a href="../#news">News</a>
+      <a href="../wire/cyberleek-casefile/">CyberLeek</a>
+      <a href="../#cast">Cast</a>
+      <a href="../#timeline">Timeline</a>
+      <a class="show-m" href="../">Flat view</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <p class="kicker">Community wire · Live 3D feed</p>
+    <h1>Leonida never sleeps. Neither does the feed.</h1>
+    <p class="lede">Unofficial GTA 6 newsroom. CyberLeek on the board. Extended Look Thursday. Drag to orbit. Scroll to dive.</p>
+    <div class="cta-row">
+      <a class="btn" href="../wire/cyberleek-casefile/">Open CyberLeek casefile</a>
+      <a class="ghost" href="../#news">Jump the board</a>
+    </div>
+  </div>
+
+  <aside class="hud">
+    <div class="hud-card">
+      <p class="hud-label">Next official drop</p>
+      <p class="hud-value" id="cd">--:--:--</p>
+      <p class="hud-meta">Extended Look · Aug 27 · Netflix 3 p.m. ET</p>
+      <div class="bar"><i></i></div>
+    </div>
+    <div class="hud-card">
+      <p class="hud-label">Case status</p>
+      <p class="hud-value" style="font-size:22px;color:var(--pink)">WATCH</p>
+      <p class="hud-meta">CyberLeek clips unauthenticated. Site dark.</p>
+    </div>
+  </aside>
+
+  <div class="bottom">
+    <p class="ticker"><span>LIVE</span> · CyberLeek casefile open · Pre orders live · Launch Nov 19 2026 · Trailer 2 still the last official move</p>
+    <p class="hint">Drag · Scroll · Move</p>
+  </div>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const canvas = document.getElementById('canvas');
+const loader = document.getElementById('loader');
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x05010f, 0.018);
+
+const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 200);
+camera.position.set(0, 8, 28);
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.15;
+renderer.setClearColor(0x05010f);
+
+const amb = new THREE.AmbientLight(0x1a0a30, 0.6);
+scene.add(amb);
+const key = new THREE.DirectionalLight(0x00f0ff, 1.2);
+key.position.set(12, 20, 8);
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xff2bd6, 0.55);
+fill.position.set(-15, 8, -6);
+scene.add(fill);
+const rim = new THREE.PointLight(0x7b2cff, 40, 60);
+rim.position.set(0, 12, -10);
+scene.add(rim);
+
+const grid = new THREE.GridHelper(120, 60, 0x00f0ff, 0x1a0a40);
+grid.position.y = 0;
+grid.material.opacity = 0.35;
+grid.material.transparent = true;
+scene.add(grid);
+
+const city = new THREE.Group();
+scene.add(city);
+const boxGeo = new THREE.BoxGeometry(1, 1, 1);
+const matCache = {};
+function neonMat(hex, emissiveIntensity = 1.4) {
+  const key = hex + '_' + emissiveIntensity;
+  if (matCache[key]) return matCache[key];
+  const c = new THREE.Color(hex);
+  const m = new THREE.MeshStandardMaterial({
+    color: c.clone().multiplyScalar(0.15),
+    emissive: c,
+    emissiveIntensity,
+    metalness: 0.7,
+    roughness: 0.25,
+  });
+  matCache[key] = m;
+  return m;
+}
+
+const palette = [0x00f0ff, 0xff2bd6, 0x7b2cff, 0xffe566, 0x00ffa3];
+for (let i = 0; i < 90; i++) {
+  const h = 1.5 + Math.random() * 14;
+  const w = 0.8 + Math.random() * 1.8;
+  const d = 0.8 + Math.random() * 1.8;
+  const mesh = new THREE.Mesh(boxGeo, neonMat(palette[i % palette.length], 0.9 + Math.random() * 0.8));
+  mesh.scale.set(w, h, d);
+  const angle = Math.random() * Math.PI * 2;
+  const radius = 6 + Math.random() * 38;
+  mesh.position.set(Math.cos(angle) * radius, h / 2, Math.sin(angle) * radius);
+  mesh.rotation.y = Math.random() * 0.4;
+  city.add(mesh);
+
+  if (Math.random() > 0.45) {
+    const strip = new THREE.Mesh(
+      new THREE.BoxGeometry(w * 0.92, 0.08, d * 0.92),
+      neonMat(palette[(i + 2) % palette.length], 2.2)
+    );
+    strip.position.set(mesh.position.x, h * (0.3 + Math.random() * 0.5), mesh.position.z);
+    city.add(strip);
+  }
+}
+
+const spire = new THREE.Mesh(
+  new THREE.CylinderGeometry(0.35, 1.2, 22, 6),
+  neonMat(0x00f0ff, 1.6)
+);
+spire.position.set(0, 11, 0);
+city.add(spire);
+const spireCap = new THREE.Mesh(
+  new THREE.ConeGeometry(0.6, 2.5, 6),
+  neonMat(0xff2bd6, 2.4)
+);
+spireCap.position.set(0, 23.2, 0);
+city.add(spireCap);
+
+const ringMat = new THREE.MeshBasicMaterial({ color: 0x00f0ff, transparent: true, opacity: 0.35, side: THREE.DoubleSide });
+const ring1 = new THREE.Mesh(new THREE.RingGeometry(9, 9.15, 128), ringMat);
+ring1.rotation.x = Math.PI / 2.4;
+ring1.position.y = 4;
+scene.add(ring1);
+const ring2 = new THREE.Mesh(new THREE.RingGeometry(14, 14.12, 128), new THREE.MeshBasicMaterial({ color: 0xff2bd6, transparent: true, opacity: 0.25, side: THREE.DoubleSide }));
+ring2.rotation.x = Math.PI / 2.1;
+ring2.position.y = 6;
+scene.add(ring2);
+
+const COUNT = 1800;
+const positions = new Float32Array(COUNT * 3);
+const colors = new Float32Array(COUNT * 3);
+const cCyan = new THREE.Color(0x00f0ff);
+const cPink = new THREE.Color(0xff2bd6);
+const cYel = new THREE.Color(0xffe566);
+for (let i = 0; i < COUNT; i++) {
+  positions[i * 3] = (Math.random() - 0.5) * 90;
+  positions[i * 3 + 1] = Math.random() * 40;
+  positions[i * 3 + 2] = (Math.random() - 0.5) * 90;
+  const col = Math.random() > 0.6 ? cPink : Math.random() > 0.5 ? cCyan : cYel;
+  colors[i * 3] = col.r;
+  colors[i * 3 + 1] = col.g;
+  colors[i * 3 + 2] = col.b;
+}
+const pGeo = new THREE.BufferGeometry();
+pGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+pGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+const pMat = new THREE.PointsMaterial({
+  size: 0.12,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.85,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false,
+});
+const particles = new THREE.Points(pGeo, pMat);
+scene.add(particles);
+
+const nodes = new THREE.Group();
+scene.add(nodes);
+for (let i = 0; i < 24; i++) {
+  const n = new THREE.Mesh(
+    new THREE.OctahedronGeometry(0.25 + Math.random() * 0.2, 0),
+    neonMat(palette[i % palette.length], 2.5)
+  );
+  const a = (i / 24) * Math.PI * 2;
+  n.position.set(Math.cos(a) * 11, 3 + Math.sin(i) * 4, Math.sin(a) * 11);
+  n.userData = { baseY: n.position.y, speed: 0.4 + Math.random() * 0.8, phase: Math.random() * Math.PI * 2 };
+  nodes.add(n);
+}
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.85, 0.4, 0.2);
+composer.addPass(bloom);
+composer.addPass(new OutputPass());
+
+let targetX = 0, targetY = 0;
+let camTheta = 0.35, camPhi = 0.15, camRadius = 30;
+let dragging = false, lastX = 0, lastY = 0;
+
+window.addEventListener('pointerdown', (e) => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+window.addEventListener('pointerup', () => { dragging = false; });
+window.addEventListener('pointermove', (e) => {
+  targetX = (e.clientX / innerWidth) * 2 - 1;
+  targetY = (e.clientY / innerHeight) * 2 - 1;
+  if (!dragging) return;
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+  lastX = e.clientX; lastY = e.clientY;
+  camTheta -= dx * 0.005;
+  camPhi = Math.max(-0.35, Math.min(0.85, camPhi + dy * 0.004));
+});
+window.addEventListener('wheel', (e) => {
+  camRadius = Math.max(14, Math.min(48, camRadius + e.deltaY * 0.02));
+}, { passive: true });
+
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+  composer.setSize(innerWidth, innerHeight);
+});
+
+const targetDate = Date.UTC(2026, 7, 27, 19, 0, 0);
+function tickCd() {
+  const diff = Math.max(0, targetDate - Date.now());
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const el = document.getElementById('cd');
+  if (el) el.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+}
+setInterval(tickCd, 1000);
+tickCd();
+
+const clock = new THREE.Clock();
+function animate() {
+  requestAnimationFrame(animate);
+  const t = clock.getElapsedTime();
+
+  city.rotation.y = t * 0.03;
+  ring1.rotation.z = t * 0.2;
+  ring2.rotation.z = -t * 0.12;
+  particles.rotation.y = t * 0.02;
+
+  nodes.children.forEach((n) => {
+    n.position.y = n.userData.baseY + Math.sin(t * n.userData.speed + n.userData.phase) * 0.8;
+    n.rotation.x = t * 0.6;
+    n.rotation.y = t * 0.4;
+  });
+
+  const px = Math.sin(camTheta) * Math.cos(camPhi) * camRadius;
+  const py = Math.sin(camPhi) * camRadius + 6;
+  const pz = Math.cos(camTheta) * Math.cos(camPhi) * camRadius;
+  camera.position.x += (px - camera.position.x) * 0.06;
+  camera.position.y += (py - camera.position.y) * 0.06;
+  camera.position.z += (pz - camera.position.z) * 0.06;
+  camera.lookAt(targetX * 2, 4 + targetY * 1.5, 0);
+
+  rim.intensity = 35 + Math.sin(t * 2) * 8;
+  composer.render();
+}
+
+requestAnimationFrame(() => {
+  animate();
+  setTimeout(() => loader.classList.add('hide'), 400);
+});
+</script>
+</body>
+</html>
