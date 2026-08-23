@@ -7,124 +7,156 @@
 <meta name="description" content="Vice City News is an unofficial, fan-run news desk covering Grand Theft Auto VI leaks, lore, and coverage. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-<!-- DISCLAIMER BAR — always visible, always first -->
+<!-- DISCLAIMER BAR -->
 <div class="disclaimer-bar">
   <p>⚠ UNOFFICIAL FAN SITE — Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners.</p>
 </div>
 
-<!-- TICKER — signature element -->
+<!-- TOP NEON NAV -->
+<nav class="topnav">
+  <a href="#" class="topnav-logo">Vice City <span>News</span></a>
+  <div class="topnav-links">
+    <a href="#home" class="topnav-link active">HOME</a>
+    <a href="#dispatches" class="topnav-link">DISPATCHES</a>
+    <a href="#lore" class="topnav-link">LORE</a>
+    <a href="#about" class="topnav-link">ABOUT</a>
+  </div>
+</nav>
+
+<!-- TICKER -->
 <div class="ticker-wrap" aria-label="Latest headlines ticker">
   <div class="ticker-scanlines"></div>
   <div class="ticker-track">
     <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
     <span class="ticker-dot">●</span>
-    <span class="ticker-item" id="ticker-live">DESK OPEN — dispatches updated as the story develops</span>
+    <span class="ticker-item">DESK OPEN — dispatches updated as the story develops</span>
     <span class="ticker-dot">●</span>
     <span class="ticker-item">FAN-RUN. FAN-FUNDED. NOT OFFICIAL.</span>
     <span class="ticker-dot">●</span>
     <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
     <span class="ticker-dot">●</span>
-    <span class="ticker-item" id="ticker-live-2">DESK OPEN — dispatches updated as the story develops</span>
+    <span class="ticker-item">DESK OPEN — dispatches updated as the story develops</span>
     <span class="ticker-dot">●</span>
     <span class="ticker-item">FAN-RUN. FAN-FUNDED. NOT OFFICIAL.</span>
     <span class="ticker-dot">●</span>
   </div>
 </div>
 
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="masthead-mark">VCN</div>
-    <h1 class="masthead-title">VICE CITY NEWS</h1>
-    <p class="masthead-sub">An independent wire desk covering the road to Leonida</p>
-  </div>
-</header>
+<div class="page-frame">
 
-<main>
+  <!-- FIXED MASCOT SIDEBAR (desktop) -->
+  <aside class="mascot-sidebar">
+    <div class="mascot-sidebar-inner">
+      <img src="mascot.jpg" alt="Kloud, the Vice City News mascot">
+      <p class="mascot-sidebar-label">KLOUD</p>
+      <p class="mascot-sidebar-sub">Desk Mascot</p>
+    </div>
+  </aside>
 
-  <!-- HERO -->
-  <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="hero-loop.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-inner">
-      <p class="hero-eyebrow">DISPATCH №1</p>
-      <h2 class="hero-headline">Everything we actually know<br>heading into launch.</h2>
-      <p class="hero-dek">No leaks dressed up as confirmations. No official claims. Just what's verifiable, dated, and sourced — filed by fans, for fans, while we wait for November.</p>
-      <div class="hero-meta">
-        <span>FILED FROM THE DESK</span>
-        <span class="hero-meta-dot">—</span>
-        <span id="hero-date"></span>
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="hero-loop.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow">DISPATCH №1</p>
+        <h2 class="hero-headline">Everything we actually know<br>heading into launch.</h2>
+        <p class="hero-dek">No leaks dressed up as confirmations. No official claims. Just what's verifiable, dated, and sourced — filed by fans, for fans, while we wait for November.</p>
+        <div class="hero-meta">
+          <span>FILED FROM THE DESK</span>
+          <span class="hero-meta-dot">—</span>
+          <span id="hero-date"></span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ARTICLE GRID -->
-  <section class="wire-grid">
-    <div class="wire-grid-header">
-      <h3>Latest Dispatches</h3>
-      <span class="wire-grid-line"></span>
-    </div>
-
-    <div class="wire-grid-list">
-      <article class="wire-card wire-card--lead">
-        <p class="wire-dateline">LEONIDA DESK</p>
-        <h4>What we can verify about launch week, and what's still just chatter</h4>
-        <p class="wire-dek">A plain read of the confirmed dates, the rumored ones, and the difference between the two — updated as new information is confirmed by primary sources.</p>
-        <p class="wire-byline">Filed by the desk</p>
-      </article>
-
-      <article class="wire-card">
-        <p class="wire-dateline">LORE FILE</p>
-        <h4>A geography of Leonida, mapped from what's been shown so far</h4>
-        <p class="wire-byline">Filed by the desk</p>
-      </article>
-
-      <article class="wire-card">
-        <p class="wire-dateline">WIRE NOTE</p>
-        <h4>How to tell a real update from launch-week noise</h4>
-        <p class="wire-byline">Filed by the desk</p>
-      </article>
-
-      <article class="wire-card">
-        <p class="wire-dateline">ARCHIVE</p>
-        <h4>A short history of Vice City, before Vice City was Leonida</h4>
-        <p class="wire-byline">Filed by the desk</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- MASCOT -->
-  <section class="mascot">
-    <div class="mascot-inner">
-      <div class="mascot-art">
-        <img src="mascot.jpg" alt="Kloud, the Vice City News mascot" loading="lazy">
+    <!-- NEWS TIMELINE -->
+    <section class="timeline" id="dispatches">
+      <div class="timeline-header">
+        <h3>Latest Dispatches</h3>
+        <span class="timeline-line"></span>
       </div>
-      <div class="mascot-copy">
-        <p class="mascot-eyebrow">DESK MASCOT</p>
-        <h3 class="mascot-name">KLOUD</h3>
-        <p class="mascot-dek">An original illustrated character created for this desk — not a Rockstar design, not a game asset. Just ours.</p>
+
+      <div class="timeline-track">
+
+        <article class="timeline-entry">
+          <div class="timeline-date">
+            <span class="timeline-day">22</span>
+            <span class="timeline-month">AUG</span>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-tag">LEONIDA DESK</p>
+            <h4>What we can verify about launch week, and what's still just chatter</h4>
+            <p class="timeline-dek">A plain read of the confirmed dates, the rumored ones, and the difference between the two — updated as new information is confirmed by primary sources.</p>
+            <p class="timeline-byline">Filed by the desk</p>
+          </div>
+        </article>
+
+        <article class="timeline-entry">
+          <div class="timeline-date">
+            <span class="timeline-day">19</span>
+            <span class="timeline-month">AUG</span>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-tag">LORE FILE</p>
+            <h4>A geography of Leonida, mapped from what's been shown so far</h4>
+            <p class="timeline-byline">Filed by the desk</p>
+          </div>
+        </article>
+
+        <article class="timeline-entry">
+          <div class="timeline-date">
+            <span class="timeline-day">14</span>
+            <span class="timeline-month">AUG</span>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-tag">WIRE NOTE</p>
+            <h4>How to tell a real update from launch-week noise</h4>
+            <p class="timeline-byline">Filed by the desk</p>
+          </div>
+        </article>
+
+        <article class="timeline-entry">
+          <div class="timeline-date">
+            <span class="timeline-day">08</span>
+            <span class="timeline-month">AUG</span>
+          </div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <p class="timeline-tag">ARCHIVE</p>
+            <h4>A short history of Vice City, before Vice City was Leonida</h4>
+            <p class="timeline-byline">Filed by the desk</p>
+          </div>
+        </article>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT / SOFT HANDOFF -->
-  <section class="about">
-    <div class="about-inner">
-      <h3>About this desk</h3>
-      <p>Vice City News is an independent, non-commercial fan project. It isn't run by, licensed by, or connected to Rockstar Games, Take-Two Interactive, or any of their subsidiaries. Nothing here should be read as official — think of it as one fan's notes, filed publicly.</p>
-      <p class="about-byline">Written and maintained independently. More gaming coverage and other work lives at <a href="#" class="about-link">Kloud</a>.</p>
-    </div>
-  </section>
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="about-inner">
+        <h3>About this desk</h3>
+        <p>Vice City News is an independent, non-commercial fan project. It isn't run by, licensed by, or connected to Rockstar Games, Take-Two Interactive, or any of their subsidiaries. Nothing here should be read as official — think of it as one fan's notes, filed publicly.</p>
+        <p class="about-byline">Written and maintained independently. More gaming coverage and other work lives at <a href="#" class="about-link">Kloud</a>.</p>
+      </div>
+    </section>
 
-</main>
+  </main>
+
+</div>
 
 <footer class="site-footer">
   <p>Vice City News is an unofficial fan project. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive Software, Inc. All trademarks, game titles, and character names are property of their respective owners.</p>
