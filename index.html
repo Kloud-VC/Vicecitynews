@@ -7,156 +7,183 @@
 <meta name="description" content="Vice City News is an unofficial, fan-run news desk covering Grand Theft Auto VI leaks, lore, and coverage. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-<!-- DISCLAIMER BAR -->
 <div class="disclaimer-bar">
-  <p>⚠ UNOFFICIAL FAN SITE — Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive. All trademarks belong to their respective owners.</p>
+  <p>⚠ UNOFFICIAL FAN SITE — Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive. Independent commentary and analysis only.</p>
 </div>
 
-<!-- TOP NEON NAV -->
 <nav class="topnav">
   <a href="#" class="topnav-logo">Vice City <span>News</span></a>
   <div class="topnav-links">
-    <a href="#home" class="topnav-link active">HOME</a>
-    <a href="#dispatches" class="topnav-link">DISPATCHES</a>
-    <a href="#lore" class="topnav-link">LORE</a>
-    <a href="#about" class="topnav-link">ABOUT</a>
+    <a href="#home" class="topnav-link active">Home</a>
+    <a href="#dispatches" class="topnav-link">Dispatches</a>
+    <a href="#story" class="topnav-link">Story</a>
+    <a href="#leonida" class="topnav-link">Leonida</a>
+    <a href="#release" class="topnav-link">Release</a>
+    <a href="#about" class="topnav-link">About</a>
   </div>
 </nav>
 
+<!-- 3D INTERACTIVE HERO -->
+<section class="hero" id="home">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-text">
+    <p class="hero-eyebrow">DESK OPEN — LEONIDA WIRE</p>
+    <h1 class="hero-headline">Everything we<br>actually know<br>heading into<br>launch.</h1>
+    <p class="hero-dek">No leaks dressed up as confirmations. Just what's verifiable, dated, and sourced — filed while we wait for November 19.</p>
+    <div class="hero-cta-row">
+      <a href="#dispatches" class="hero-cta">Read the Wire</a>
+      <span class="hero-date-label">FILED <span id="hero-date"></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO STRIP -->
+<section class="video-strip">
+  <video class="video-strip-el" autoplay muted loop playsinline preload="auto">
+    <source src="hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="video-strip-overlay"></div>
+  <div class="video-strip-caption"><span>LEONIDA, AFTER DARK</span></div>
+</section>
+
 <!-- TICKER -->
 <div class="ticker-wrap" aria-label="Latest headlines ticker">
-  <div class="ticker-scanlines"></div>
   <div class="ticker-track">
     <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
     <span class="ticker-dot">●</span>
-    <span class="ticker-item">DESK OPEN — dispatches updated as the story develops</span>
+    <span class="ticker-item">RELEASE DATE: NOVEMBER 19, 2026 — CONFIRMED BY ROCKSTAR</span>
     <span class="ticker-dot">●</span>
     <span class="ticker-item">FAN-RUN. FAN-FUNDED. NOT OFFICIAL.</span>
     <span class="ticker-dot">●</span>
     <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
     <span class="ticker-dot">●</span>
-    <span class="ticker-item">DESK OPEN — dispatches updated as the story develops</span>
-    <span class="ticker-dot">●</span>
-    <span class="ticker-item">FAN-RUN. FAN-FUNDED. NOT OFFICIAL.</span>
+    <span class="ticker-item">RELEASE DATE: NOVEMBER 19, 2026 — CONFIRMED BY ROCKSTAR</span>
     <span class="ticker-dot">●</span>
   </div>
 </div>
 
-<div class="page-frame">
+<!-- DISPATCHES: the release timeline, told as filed reports -->
+<section class="dispatches" id="dispatches">
+  <div class="section-header">
+    <span class="section-eyebrow">THE RECORD</span>
+    <h2>Latest Dispatches</h2>
+  </div>
 
-  <!-- FIXED MASCOT SIDEBAR (desktop) -->
-  <aside class="mascot-sidebar">
-    <div class="mascot-sidebar-inner">
-      <img src="mascot.jpg" alt="Kloud, the Vice City News mascot">
-      <p class="mascot-sidebar-label">KLOUD</p>
-      <p class="mascot-sidebar-sub">Desk Mascot</p>
+  <div class="dispatch-grid">
+    <article class="dispatch-card dispatch-card--lead">
+      <div class="dispatch-card-media dispatch-card-media--pink"></div>
+      <div class="dispatch-card-body">
+        <p class="dispatch-date">NOV 6, 2025</p>
+        <h3>The desk logs a second delay: launch pushed to November 19, 2026</h3>
+        <p class="dispatch-dek">Rockstar confirmed Grand Theft Auto VI would not make its previously stated window, pointing to the extra time needed to hit the level of polish the studio has built its name on. It's the second public shift on the calendar — the game had already moved once, from a vague "2025" target to May 26, 2026, before landing on its current date.</p>
+      </div>
+    </article>
+
+    <article class="dispatch-card">
+      <div class="dispatch-card-media dispatch-card-media--cyan"></div>
+      <div class="dispatch-card-body">
+        <p class="dispatch-date">SEP 2022</p>
+        <h3>The leak that started it all: 90 clips, one Slack breach, and a name — Jason and Lucia</h3>
+        <p class="dispatch-dek">Over ninety video clips of early development footage surfaced on a public forum, apparently pulled directly from Rockstar's internal systems. It was the first confirmation the public had that the next game existed at all — and the first time the names Jason and Lucia entered the record.</p>
+      </div>
+    </article>
+
+    <article class="dispatch-card">
+      <div class="dispatch-card-media dispatch-card-media--orange"></div>
+      <div class="dispatch-card-body">
+        <p class="dispatch-date">MAY 2025</p>
+        <h3>A date, then a trailer — Rockstar breaks its silence</h3>
+        <p class="dispatch-dek">A release window finally went public, paired with a second trailer and a full overhaul of the game's official web presence. It didn't hold — but it was the first time "when" felt like a real question with a real answer, however temporary.</p>
+      </div>
+    </article>
+
+    <article class="dispatch-card">
+      <div class="dispatch-card-media dispatch-card-media--purple"></div>
+      <div class="dispatch-card-body">
+        <p class="dispatch-date">AUG 2026</p>
+        <h3>"An Extended Look" — the desk is watching the clock</h3>
+        <p class="dispatch-dek">Rockstar has a longer look at the game scheduled for release this month. We'll be filing on it the moment it's public — not before.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="section-header">
+    <span class="section-eyebrow">THE PREMISE</span>
+    <h2>Jason & Lucia</h2>
+  </div>
+  <div class="story-inner">
+    <p>For the first time in the series' history, the game hands the wheel to two playable leads instead of one — and for the first time, one of them is a woman with a full voice performance, not a silent or secondary role. Jason and Lucia are the story's center of gravity, a pairing the press has repeatedly framed as this era's answer to Bonnie and Clyde: two people who trust each other because the world around them has given them no one else to trust.</p>
+    <p>The premise, as far as it's been made public: a score goes wrong, and the two of them end up on the wrong side of a criminal conspiracy that reaches across the entire state. It's a smaller, more personal setup than some of the series' past ensemble casts — which tracks with Rockstar's own framing of this as a tighter, more character-driven story than its predecessor.</p>
+  </div>
+</section>
+
+<!-- LEONIDA / WORLD -->
+<section class="leonida" id="leonida">
+  <div class="section-header">
+    <span class="section-eyebrow">THE MAP</span>
+    <h2>Leonida, and the Vice City that isn't quite the one you remember</h2>
+  </div>
+  <div class="leonida-grid">
+    <div class="leonida-card">
+      <h4>A modern Vice City</h4>
+      <p>The reveal trailer placed the game in a present-day take on Vice City — the same neon-and-palm-tree template the series built its identity on in 2002, rebuilt from the ground up for a new console generation.</p>
     </div>
-  </aside>
+    <div class="leonida-card">
+      <h4>The Florida retcon</h4>
+      <p>Longtime players will remember scattered references to a real "Florida" in past entries. Leonida's arrival quietly folds those references into the fiction — the state was always meant to be this one, not a real-world stand-in.</p>
+    </div>
+    <div class="leonida-card">
+      <h4>Scale — still unverified</h4>
+      <p>Early leak-sourced claims described a map twice the size of Grand Theft Auto V's, spanning multiple cities and a high percentage of enterable interiors. None of that has been confirmed by Rockstar directly. We're flagging it as chatter, not fact, until it is.</p>
+    </div>
+  </div>
+</section>
 
-  <main>
+<!-- RELEASE / EDITIONS -->
+<section class="release" id="release">
+  <div class="section-header">
+    <span class="section-eyebrow">THE DETAILS</span>
+    <h2>What's confirmed for launch</h2>
+  </div>
+  <div class="release-grid">
+    <div class="release-item">
+      <p class="release-label">RELEASE DATE</p>
+      <p class="release-value">November 19, 2026</p>
+    </div>
+    <div class="release-item">
+      <p class="release-label">PLATFORMS</p>
+      <p class="release-value">PlayStation 5, Xbox Series X|S</p>
+    </div>
+    <div class="release-item">
+      <p class="release-label">EDITIONS</p>
+      <p class="release-value">Standard, Ultimate Edition</p>
+    </div>
+    <div class="release-item">
+      <p class="release-label">PRE-ORDER BONUS</p>
+      <p class="release-value">Vintage Vice City Pack</p>
+    </div>
+  </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-      <video class="hero-video" autoplay muted loop playsinline preload="auto">
-        <source src="hero-loop.mp4" type="video/mp4">
-      </video>
-      <div class="hero-overlay"></div>
-      <div class="hero-inner">
-        <p class="hero-eyebrow">DISPATCH №1</p>
-        <h2 class="hero-headline">Everything we actually know<br>heading into launch.</h2>
-        <p class="hero-dek">No leaks dressed up as confirmations. No official claims. Just what's verifiable, dated, and sourced — filed by fans, for fans, while we wait for November.</p>
-        <div class="hero-meta">
-          <span>FILED FROM THE DESK</span>
-          <span class="hero-meta-dot">—</span>
-          <span id="hero-date"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEWS TIMELINE -->
-    <section class="timeline" id="dispatches">
-      <div class="timeline-header">
-        <h3>Latest Dispatches</h3>
-        <span class="timeline-line"></span>
-      </div>
-
-      <div class="timeline-track">
-
-        <article class="timeline-entry">
-          <div class="timeline-date">
-            <span class="timeline-day">22</span>
-            <span class="timeline-month">AUG</span>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <p class="timeline-tag">LEONIDA DESK</p>
-            <h4>What we can verify about launch week, and what's still just chatter</h4>
-            <p class="timeline-dek">A plain read of the confirmed dates, the rumored ones, and the difference between the two — updated as new information is confirmed by primary sources.</p>
-            <p class="timeline-byline">Filed by the desk</p>
-          </div>
-        </article>
-
-        <article class="timeline-entry">
-          <div class="timeline-date">
-            <span class="timeline-day">19</span>
-            <span class="timeline-month">AUG</span>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <p class="timeline-tag">LORE FILE</p>
-            <h4>A geography of Leonida, mapped from what's been shown so far</h4>
-            <p class="timeline-byline">Filed by the desk</p>
-          </div>
-        </article>
-
-        <article class="timeline-entry">
-          <div class="timeline-date">
-            <span class="timeline-day">14</span>
-            <span class="timeline-month">AUG</span>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <p class="timeline-tag">WIRE NOTE</p>
-            <h4>How to tell a real update from launch-week noise</h4>
-            <p class="timeline-byline">Filed by the desk</p>
-          </div>
-        </article>
-
-        <article class="timeline-entry">
-          <div class="timeline-date">
-            <span class="timeline-day">08</span>
-            <span class="timeline-month">AUG</span>
-          </div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <p class="timeline-tag">ARCHIVE</p>
-            <h4>A short history of Vice City, before Vice City was Leonida</h4>
-            <p class="timeline-byline">Filed by the desk</p>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-      <div class="about-inner">
-        <h3>About this desk</h3>
-        <p>Vice City News is an independent, non-commercial fan project. It isn't run by, licensed by, or connected to Rockstar Games, Take-Two Interactive, or any of their subsidiaries. Nothing here should be read as official — think of it as one fan's notes, filed publicly.</p>
-        <p class="about-byline">Written and maintained independently. More gaming coverage and other work lives at <a href="#" class="about-link">Kloud</a>.</p>
-      </div>
-    </section>
-
-  </main>
-
-</div>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <h3>About this desk</h3>
+    <p>Vice City News is an independent, non-commercial fan project. It isn't run by, licensed by, or connected to Rockstar Games, Take-Two Interactive, or any of their subsidiaries. Everything reported here is drawn from publicly available sources and cross-checked where possible — nothing here should be read as official.</p>
+    <p class="about-byline">Written and maintained independently. More gaming coverage lives at <a href="#" class="about-link">Kloud</a>.</p>
+  </div>
+</section>
 
 <footer class="site-footer">
   <p>Vice City News is an unofficial fan project. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive Software, Inc. All trademarks, game titles, and character names are property of their respective owners.</p>
