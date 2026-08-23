@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
@@ -48,6 +50,10 @@
 
   <!-- HERO -->
   <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="hero-loop.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
       <p class="hero-eyebrow">DISPATCH №1</p>
       <h2 class="hero-headline">Everything we actually know<br>heading into launch.</h2>
@@ -99,7 +105,7 @@
   <section class="mascot">
     <div class="mascot-inner">
       <div class="mascot-art">
-        <img src="assets/mascot.jpg" alt="Kloud, the Vice City News mascot" loading="lazy">
+        <img src="mascot.jpg" alt="Kloud, the Vice City News mascot" loading="lazy">
       </div>
       <div class="mascot-copy">
         <p class="mascot-eyebrow">DESK MASCOT</p>
