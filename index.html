@@ -1,195 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vice City News — Unofficial GTA VI Wire Desk</title>
-<meta name="description" content="Vice City News is an unofficial, fan-run news desk covering Grand Theft Auto VI leaks, lore, and coverage. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive.">
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice City News</title><meta name="description" content="Unofficial GTA 6 community news. CyberLeek casefile, Lucia Caminos, Jason Duval, Leonida. Not affiliated with Rockstar or Take Two.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pacifico&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-</head>
-<body>
-
-<div class="disclaimer-bar">
-  <p>⚠ UNOFFICIAL FAN SITE — Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive. Independent commentary and analysis only.</p>
+</head><body><div class="disclaimer">Unofficial fan site. Not affiliated with Rockstar Games or Take Two Interactive.</div>
+<header class="top"><a class="logo" href="">VICE CITY <span>NEWS</span></a>
+<button class="nav-btn" id="nav-btn" aria-label="Menu">Menu</button>
+<nav id="nav">
+<a href="#news">News</a><a href="#talk">Talk</a>
+<a href="wire/cyberleek-casefile/">CyberLeek</a>
+<a href="#timeline">Timeline</a><a href="#footage">Trailers</a>
+</nav></header>
+<section class="break"><div class="wrap two"><div>
+<p class="kicker orange">BREAKING · COMMUNITY CASEFILE</p>
+<h1>CyberLeek is the story. Thursday is the official answer.</h1>
+<p class="lede">A group calling itself CyberLeek has been dumping alleged GTA 6 gameplay since August 18. Rockstar has not confirmed a frame of it. We do not host the clips. We log every claim, every court move, and what you are arguing in Talk.</p>
+<div class="cta-row"><a class="btn" href="wire/cyberleek-casefile/">Read the casefile</a><a class="ghost" href="#talk">Jump to Talk</a></div>
+</div><div>
+<img class="hero-img" src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2025/05/06/gta6-trailer-2-lucia.jpg" alt="Editorial art for the CyberLeek casefile">
+<div id="countdown" class="countdown"></div>
+<p class="mono muted xs">Editorial still for news commentary. Not a leak clip.</p>
+</div></div></section>
+<div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+<section id="news" class="wrap board"><div>
+<p class="kicker orange">THE BOARD</p>
+<h2 class="display">What the community is on</h2>
+<p class="muted">Latest reporting first. Click a headline. Then dump your take in Talk.</p>
+<a class="lead" href="wire/cyberleek-casefile/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2025/05/06/gta6-trailer-2-lucia.jpg" alt="Editorial art for the CyberLeek casefile"><div class="pad lg"><div class="row"><span class="badge badge-watch">watch</span><span class="mono yellow sm">August 23, 2026</span></div><p class="kicker orange">The case</p><h3 class="display big">CyberLeek: Everything We Know About The Group Dumping Alleged GTA 6 Gameplay</h3><p class="muted">Clips since August 18. A manifesto. A meme coin. Take Two in court. We do not host a frame of the stolen footage.</p><span class="inline">Open the casefile</span></div></a>
+<div class="grid2"><a class="card" href="wire/extended-look-august-27/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2025/05/06/gta6-trailer-2-keyart.jpg" alt="Official Trailer 2 era art" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-upcoming">upcoming</span><span class="mono yellow sm">August 6, 2026</span></div><h3>GTA 6 Extended Look Hits Thursday. Netflix at 3 p.m. ET, YouTube Six Hours Later</h3><p class="muted sm">First official footage since Trailer 2. Runtime unconfirmed. BBC floated 30 minutes. Rockstar has not.</p></div></a><a class="card" href="wire/preorders-editions/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2026/06/18/gta6-cover-art.jpg" alt="Official cover art used on store tiles" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">June 25, 2026</span></div><h3>GTA 6 Pre Orders Are Live: $80 Standard, $100 Ultimate, and a Code in the Box</h3><p class="muted sm">Preload November 12. Vintage Vice City Pack dies November 20. PC is still a blank line.</p></div></a><a class="card" href="wire/cover-art/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2026/06/18/gta6-cover-art.jpg" alt="Official GTA VI cover art" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">June 18, 2026</span></div><h3>Rockstar Drops the GTA 6 Cover: Lucia and Jason, Guns Out, Helicopter Overhead</h3><p class="muted sm">Same collage house style as GTA III. First numbered cover that puts a woman on equal footing in the foreground.</p></div></a><a class="card" href="wire/second-delay/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2025/05/06/gta6-trailer-2-keyart.jpg" alt="Official key art" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">November 6, 2025</span></div><h3>GTA 6 Delayed Again. Rockstar Moves Launch to November 19, 2026</h3><p class="muted sm">Fall 2025 died first. May 26 died second. The line this time: extra months of polish.</p></div></a><a class="card" href="wire/trailer-two/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2025/05/06/gta6-trailer-2-lucia.jpg" alt="Lucia Caminos from Trailer 2" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">May 6, 2025</span></div><h3>GTA 6 Trailer 2 Names Lucia Caminos and Jason Duval. Then Walks Her Out of Prison</h3><p class="muted sm">Key Lento. A bank. A Buzzard. Hot Together on the needle drop. The last official moving picture until this week.</p></div></a><a class="card" href="wire/first-delay/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2023/12/04/gta6-trailer-1-keyart.jpg" alt="Trailer 1 era art" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">May 2, 2025</span></div><h3>GTA 6 Misses Fall 2025. Rockstar Locks May 26, 2026, Then Blinks Six Months Later</h3><p class="muted sm">Trailer 2 arrived four days after the first delay. The May date did not survive the year.</p></div></a><a class="card" href="wire/trailer-one/"><img src="https://media-rockstargames-com.akamaized.net/tina-uploads/tina-img/2023/12/04/gta6-trailer-1-keyart.jpg" alt="Official Trailer 1 art" loading="lazy"><div class="pad"><div class="row"><span class="badge badge-confirmed">confirmed</span><span class="mono yellow sm">December 4, 2023</span></div><h3>GTA 6 Trailer 1 Leaks a Day Early. Then Does 90 Million Views in 24 Hours</h3><p class="muted sm">The place trailer. Dual leads. A modern Vice City. A state, not a single island.</p></div></a></div>
 </div>
-
-<nav class="topnav">
-  <a href="#" class="topnav-logo">Vice City <span>News</span></a>
-  <div class="topnav-links">
-    <a href="#home" class="topnav-link active">Home</a>
-    <a href="#dispatches" class="topnav-link">Dispatches</a>
-    <a href="#story" class="topnav-link">Story</a>
-    <a href="#leonida" class="topnav-link">Leonida</a>
-    <a href="#release" class="topnav-link">Release</a>
-    <a href="#about" class="topnav-link">About</a>
-  </div>
-</nav>
-
-<!-- 3D INTERACTIVE HERO -->
-<section class="hero" id="home">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-text">
-    <p class="hero-eyebrow">DESK OPEN — LEONIDA WIRE</p>
-    <h1 class="hero-headline">Everything we<br>actually know<br>heading into<br>launch.</h1>
-    <p class="hero-dek">No leaks dressed up as confirmations. Just what's verifiable, dated, and sourced — filed while we wait for November 19.</p>
-    <div class="hero-cta-row">
-      <a href="#dispatches" class="hero-cta">Read the Wire</a>
-      <span class="hero-date-label">FILED <span id="hero-date"></span></span>
-    </div>
-  </div>
+<aside id="timeline"><p class="kicker orange">TIMELINE</p><h2 class="display">Click a date</h2><ol class="tl">
+<li><p class="tl-year">2026</p><a href="wire/cyberleek-casefile/"><p class="mono muted">Aug 23, 2026</p><p class="tl-title">CyberLeek casefile: clips, coin, court, site down</p><span class="badge badge-watch">watch</span></a></li>
+<li><a href="wire/cyberleek-casefile/"><p class="mono muted">Aug 22, 2026</p><p class="tl-title">CyberLeek site and Telegram go dark</p><span class="badge badge-watch">watch</span></a></li>
+<li><a href="wire/cyberleek-casefile/"><p class="mono muted">Aug 18, 2026</p><p class="tl-title">First CyberLeek clips and claimed Leonida map</p><span class="badge badge-watch">watch</span></a></li>
+<li><a href="wire/preorders-editions/"><p class="mono muted">Nov 19, 2026</p><p class="tl-title">Launch. PS5 and Xbox Series X|S</p><span class="badge badge-upcoming">upcoming</span></a></li>
+<li><a href="wire/extended-look-august-27/"><p class="mono muted">Aug 27, 2026</p><p class="tl-title">Extended Look. Netflix 3 p.m. ET, YouTube 9 p.m. ET</p><span class="badge badge-upcoming">upcoming</span></a></li>
+<li><a href="wire/extended-look-august-27/"><p class="mono muted">Aug 6, 2026</p><p class="tl-title">Rockstar dates the Extended Look</p><span class="badge badge-confirmed">confirmed</span></a></li>
+<li><a href="wire/preorders-editions/"><p class="mono muted">Jun 25, 2026</p><p class="tl-title">Pre orders go live, $80 / $100</p><span class="badge badge-confirmed">confirmed</span></a></li>
+<li><a href="wire/cover-art/"><p class="mono muted">Jun 18, 2026</p><p class="tl-title">Official cover art: Lucia and Jason</p><span class="badge badge-confirmed">confirmed</span></a></li>
+</ol></aside>
 </section>
-
-<!-- VIDEO STRIP -->
-<section class="video-strip">
-  <video class="video-strip-el" autoplay muted loop playsinline preload="auto">
-    <source src="hero-loop.mp4" type="video/mp4">
-  </video>
-  <div class="video-strip-overlay"></div>
-  <div class="video-strip-caption"><span>LEONIDA, AFTER DARK</span></div>
+<section id="talk" class="wrap">
+<p class="kicker orange">COMMUNITY</p><h2 class="display">Talk</h2>
+<p class="muted">This is the comment section. CyberLeek, Thursday, the box price, the map. Posts stay in this browser.</p>
+<form id="talk-form" class="talk-form"><input id="talk-name" maxlength="24" placeholder="Name"><input id="talk-text" maxlength="400" placeholder="Say it in 400 characters."><button type="submit">Post</button></form>
+<div id="talk-list"><article class="post"><div class="post-meta"><span class="yellow">Causeway</span> @keys<span class="right">12m</span></div><p>If CyberLeek has a playable build we are cooked. Thursday cannot be another montage after this week.</p><p class="pink xs">891 up</p></article><article class="post"><div class="post-meta"><span class="yellow">La Perle</span> @vice<span class="right">41m</span></div><p>The coin is the tell. You do not need $CYBERLEEK to hate a code in a box. They mixed a real gripe with a pump.</p><p class="pink xs">1204 up</p></article><article class="post"><div class="post-meta"><span class="yellow">Port Gellhorn</span> @kelly<span class="right">2h</span></div><p>Shooting LEEK into a wall is not a trailer file. That is someone holding a controller. Rockstar has to speak.</p><p class="pink xs">673 up</p></article><article class="post"><div class="post-meta"><span class="yellow">Kalaga</span> @north<span class="right">3h</span></div><p>Map image is circulating like it is gospel. It is a picture on Telegram. Wait for Thursday before you redraw Leonida.</p><p class="pink xs">412 up</p></article><article class="post"><div class="post-meta"><span class="yellow">Shore Court</span> @pack<span class="right">5h</span></div><p>Stop Killing Games already told them to get lost. Illegal leaks are not consumer advocacy. Full stop.</p><p class="pink xs">958 up</p></article><article class="post"><div class="post-meta"><span class="yellow">Rusty Anchor</span> @keys<span class="right">8h</span></div><p>Site down, Telegram down, seventh clip still out. Take Two can strike videos. They cannot unsend a build.</p><p class="pink xs">540 up</p></article></div>
 </section>
-
-<!-- TICKER -->
-<div class="ticker-wrap" aria-label="Latest headlines ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
-    <span class="ticker-dot">●</span>
-    <span class="ticker-item">RELEASE DATE: NOVEMBER 19, 2026 — CONFIRMED BY ROCKSTAR</span>
-    <span class="ticker-dot">●</span>
-    <span class="ticker-item">FAN-RUN. FAN-FUNDED. NOT OFFICIAL.</span>
-    <span class="ticker-dot">●</span>
-    <span class="ticker-item">LEONIDA WIRE — independent coverage, zero affiliation</span>
-    <span class="ticker-dot">●</span>
-    <span class="ticker-item">RELEASE DATE: NOVEMBER 19, 2026 — CONFIRMED BY ROCKSTAR</span>
-    <span class="ticker-dot">●</span>
-  </div>
+<section id="footage" class="wrap">
+<p class="kicker orange">OFFICIAL FOOTAGE</p>
+<h2 class="display">The two trailers Rockstar posted</h2>
+<p class="muted">These are the only moving pictures we embed. CyberLeek clips stay off this site.</p>
+<div class="grid2">
+<article class="card"><div class="video"><iframe title="Trailer 2" src="https://www.youtube-nocookie.com/embed/VQRLujxTm3c" allowfullscreen></iframe></div><div class="pad"><p class="mono yellow sm">May 6, 2025</p><h3 class="display">Trailer 2</h3><a class="inline" href="wire/trailer-two/">Read the story</a></div></article>
+<article class="card"><div class="video"><iframe title="Trailer 1" src="https://www.youtube-nocookie.com/embed/QdBZY2fkU-0" allowfullscreen></iframe></div><div class="pad"><p class="mono yellow sm">December 4, 2023</p><h3 class="display">Trailer 1</h3><a class="inline" href="wire/trailer-one/">Read the story</a></div></article>
 </div>
-
-<!-- DISPATCHES: the release timeline, told as filed reports -->
-<section class="dispatches" id="dispatches">
-  <div class="section-header">
-    <span class="section-eyebrow">THE RECORD</span>
-    <h2>Latest Dispatches</h2>
-  </div>
-
-  <div class="dispatch-grid">
-    <article class="dispatch-card dispatch-card--lead">
-      <div class="dispatch-card-media dispatch-card-media--pink"></div>
-      <div class="dispatch-card-body">
-        <p class="dispatch-date">NOV 6, 2025</p>
-        <h3>The desk logs a second delay: launch pushed to November 19, 2026</h3>
-        <p class="dispatch-dek">Rockstar confirmed Grand Theft Auto VI would not make its previously stated window, pointing to the extra time needed to hit the level of polish the studio has built its name on. It's the second public shift on the calendar — the game had already moved once, from a vague "2025" target to May 26, 2026, before landing on its current date.</p>
-      </div>
-    </article>
-
-    <article class="dispatch-card">
-      <div class="dispatch-card-media dispatch-card-media--cyan"></div>
-      <div class="dispatch-card-body">
-        <p class="dispatch-date">SEP 2022</p>
-        <h3>The leak that started it all: 90 clips, one Slack breach, and a name — Jason and Lucia</h3>
-        <p class="dispatch-dek">Over ninety video clips of early development footage surfaced on a public forum, apparently pulled directly from Rockstar's internal systems. It was the first confirmation the public had that the next game existed at all — and the first time the names Jason and Lucia entered the record.</p>
-      </div>
-    </article>
-
-    <article class="dispatch-card">
-      <div class="dispatch-card-media dispatch-card-media--orange"></div>
-      <div class="dispatch-card-body">
-        <p class="dispatch-date">MAY 2025</p>
-        <h3>A date, then a trailer — Rockstar breaks its silence</h3>
-        <p class="dispatch-dek">A release window finally went public, paired with a second trailer and a full overhaul of the game's official web presence. It didn't hold — but it was the first time "when" felt like a real question with a real answer, however temporary.</p>
-      </div>
-    </article>
-
-    <article class="dispatch-card">
-      <div class="dispatch-card-media dispatch-card-media--purple"></div>
-      <div class="dispatch-card-body">
-        <p class="dispatch-date">AUG 2026</p>
-        <h3>"An Extended Look" — the desk is watching the clock</h3>
-        <p class="dispatch-dek">Rockstar has a longer look at the game scheduled for release this month. We'll be filing on it the moment it's public — not before.</p>
-      </div>
-    </article>
-  </div>
 </section>
-
-<!-- STORY -->
-<section class="story" id="story">
-  <div class="section-header">
-    <span class="section-eyebrow">THE PREMISE</span>
-    <h2>Jason & Lucia</h2>
-  </div>
-  <div class="story-inner">
-    <p>For the first time in the series' history, the game hands the wheel to two playable leads instead of one — and for the first time, one of them is a woman with a full voice performance, not a silent or secondary role. Jason and Lucia are the story's center of gravity, a pairing the press has repeatedly framed as this era's answer to Bonnie and Clyde: two people who trust each other because the world around them has given them no one else to trust.</p>
-    <p>The premise, as far as it's been made public: a score goes wrong, and the two of them end up on the wrong side of a criminal conspiracy that reaches across the entire state. It's a smaller, more personal setup than some of the series' past ensemble casts — which tracks with Rockstar's own framing of this as a tighter, more character-driven story than its predecessor.</p>
-  </div>
+<section id="release" class="wrap">
+<p class="kicker orange">RELEASE</p><h2 class="display">On the box</h2>
+<div class="facts">
+<div><p class="mono muted xs">DATE</p><p class="display">November 19, 2026</p></div>
+<div><p class="mono muted xs">PLATFORMS</p><p class="display">PS5, Xbox Series X|S</p></div>
+<div><p class="mono muted xs">PRICE</p><p class="display">Standard ~$80 · Ultimate ~$100</p></div>
+<div><p class="mono muted xs">BONUS</p><p class="display">Vintage Vice City Pack before Nov 20</p></div>
+</div>
+<p class="muted sm">Preload November 12. Physical Standard is widely listed as a code in the box. PC has not been announced.</p>
 </section>
-
-<!-- LEONIDA / WORLD -->
-<section class="leonida" id="leonida">
-  <div class="section-header">
-    <span class="section-eyebrow">THE MAP</span>
-    <h2>Leonida, and the Vice City that isn't quite the one you remember</h2>
-  </div>
-  <div class="leonida-grid">
-    <div class="leonida-card">
-      <h4>A modern Vice City</h4>
-      <p>The reveal trailer placed the game in a present-day take on Vice City — the same neon-and-palm-tree template the series built its identity on in 2002, rebuilt from the ground up for a new console generation.</p>
-    </div>
-    <div class="leonida-card">
-      <h4>The Florida retcon</h4>
-      <p>Longtime players will remember scattered references to a real "Florida" in past entries. Leonida's arrival quietly folds those references into the fiction — the state was always meant to be this one, not a real-world stand-in.</p>
-    </div>
-    <div class="leonida-card">
-      <h4>Scale — still unverified</h4>
-      <p>Early leak-sourced claims described a map twice the size of Grand Theft Auto V's, spanning multiple cities and a high percentage of enterable interiors. None of that has been confirmed by Rockstar directly. We're flagging it as chatter, not fact, until it is.</p>
-    </div>
-  </div>
-</section>
-
-<!-- RELEASE / EDITIONS -->
-<section class="release" id="release">
-  <div class="section-header">
-    <span class="section-eyebrow">THE DETAILS</span>
-    <h2>What's confirmed for launch</h2>
-  </div>
-  <div class="release-grid">
-    <div class="release-item">
-      <p class="release-label">RELEASE DATE</p>
-      <p class="release-value">November 19, 2026</p>
-    </div>
-    <div class="release-item">
-      <p class="release-label">PLATFORMS</p>
-      <p class="release-value">PlayStation 5, Xbox Series X|S</p>
-    </div>
-    <div class="release-item">
-      <p class="release-label">EDITIONS</p>
-      <p class="release-value">Standard, Ultimate Edition</p>
-    </div>
-    <div class="release-item">
-      <p class="release-label">PRE-ORDER BONUS</p>
-      <p class="release-value">Vintage Vice City Pack</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <h3>About this desk</h3>
-    <p>Vice City News is an independent, non-commercial fan project. It isn't run by, licensed by, or connected to Rockstar Games, Take-Two Interactive, or any of their subsidiaries. Everything reported here is drawn from publicly available sources and cross-checked where possible — nothing here should be read as official.</p>
-    <p class="about-byline">Written and maintained independently. More gaming coverage lives at <a href="#" class="about-link">Kloud</a>.</p>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <p>Vice City News is an unofficial fan project. Not affiliated with, endorsed by, or associated with Rockstar Games or Take-Two Interactive Software, Inc. All trademarks, game titles, and character names are property of their respective owners.</p>
-  <p class="site-footer-meta">No ads. No sponsorships. No affiliate links. Just dispatches.</p>
-</footer>
-
-<script src="script.js"></script>
-</body>
-</html>
+<footer><p>Vice City News is unofficial community reporting. We rewrite public sources. We do not host leaked builds. Official promotional images © Rockstar Games, used for news commentary. Grand Theft Auto and related names belong to their owners.</p><p class="yellow">No ads. No affiliate links.</p></footer><script src="script.js"></script></body></html>
